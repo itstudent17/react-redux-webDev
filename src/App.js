@@ -1,33 +1,10 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 
-const MyLink = ({ text, handleClick }) => (
-  <a href="/test" onClick={handleClick}>
-    {text}
-  </a>
-);
-
-MyLink.propTypes = {
-  text: PropTypes.string,
-  handleClick: PropTypes.func,
+const App = () => {
+  const val = 0;
+  // Если первый ложен, то он и отобразится
+  // Если первый инстинен, то отобразится второй
+  return <div>{val && <h2>Val is {val}</h2>}</div>;
 };
-
-MyLink.defaultProps = {
-  text: "link",
-  handleClick: () => {},
-};
-
-class App extends Component {
-  // принимает аргумет, который не передавали
-  handleClick = (e, word) => {
-    e.preventDefault();
-    console.log("Clicked on link!", word);
-  };
-
-  render() {
-    // не передает объект события в качестве аргумента
-    return <MyLink handleClick={(e) => this.handleClick(e, "test")} />;
-  }
-}
 
 export default App;
